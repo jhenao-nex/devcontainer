@@ -1,0 +1,8 @@
+apiVersion: kuma.io/v1alpha1
+kind: Service
+metadata:
+  name: service-a
+  namespace: default
+spec:
+  tags:
+    service: service-a
