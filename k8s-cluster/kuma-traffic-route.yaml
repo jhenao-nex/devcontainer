@@ -1,0 +1,15 @@
+apiVersion: kuma.io/v1alpha1
+kind: TrafficRoute
+metadata:
+  name: frontend-to-backend
+  namespace: default  # Asegúrate de que este sea el namespace correcto
+spec:
+  mesh: default  # Asegúrate de que este sea el nombre correcto del mesh
+  destination:
+    service: backend
+  sources:
+  - match:
+      kuma.io/service: frontend
+  destinations:
+  - match:
+      kuma.io/service: backend

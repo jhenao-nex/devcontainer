@@ -1,0 +1,73 @@
+{
+	"name": "k8s-cluster",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "k8s-cluster",
+	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+	"features": {
+  "ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {
+      "enabled": true,
+      "kubectlVersion": "1.22.0",
+      "kubectlAliases": true,
+      "kumaVersion": "1.11.0",
+      "kumactlVersion": "1.11.0",
+      "helmVersion": "3.7.0",
+      "helmAliases": true,
+      "kumactlAliases": true,
+      "kumaAliases": true,
+      "kubeadmVersion": "1.22.0",
+      "kubeadmAliases": true,
+      "kindVersion": "0.11.1",
+      "kindAliases": true,
+      "k9sVersion": "0.24.15",
+      "k9sAliases": true,
+      "kubeShellVersion": "1.1.0", 
+      "kubeShellAliases": true,
+      "kubeletVersion": "1.22.0",
+      "kubeletAliases": true,
+      "dockerComposeVersion": "1.29.2",
+      "dockerComposeAliases": true,
+      "terraformVersion": "1.0.4",
+      "terraformAliases": true,
+      "terraformCompletion": true,
+      "terraformBashCompletion": true
+    },
+	"ghcr.io/devcontainers/features/docker-in-docker:2": {
+      "dockerComposeVersion": "1.29.2",
+      "dockerComposeAliases": true,
+      "dockerComposeCompletion": true,
+      "dockerComposeBashCompletion": true,
+      "dockerComposeZshCompletion": true,
+      "dockerComposeFishCompletion": true,
+      "dockerComposePowershellCompletion": true
+    },
+    "ghcr.io/eliises/devcontainer-features/bash-profile:1.0.1" : {
+      "bashProfileAliases": true,
+      "bashProfileVersion": "1.0.0"
+    }
+  },
+  "forwardPorts": [
+	  3000,
+    3001,
+    3002,
+    3003,
+	  7007,
+	  8080,
+    8081,
+    8082,
+    8083
+	],
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-ossdata.vscode-postgresql",
+        "ms-vscode.cpptools",
+        "ms-azuretools.vscode-docker"
+			],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+    }
+    }
+  },
+  "postCreateCommand": "echo 'Contenedor listo!' && sudo service docker start || echo 'Docker ya está corriendo'"
+  //"remoteUser": "arheanja"
+}
