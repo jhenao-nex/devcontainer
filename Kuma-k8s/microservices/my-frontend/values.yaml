@@ -1,0 +1,31 @@
+replicaCount: 1
+
+image:
+  repository: jaimehenao8126/frontend:latest
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP  # O LoadBalancer/NodePort según tu necesidad
+  port: 80s
+
+serviceAccount:
+  create: false  # Cambia a false si no necesitas crear un ServiceAccount
+  name: "frontend-sa"
+
+
+ingress:
+  enabled: false # Cambia a false si no deseas crear un Ingress
+  name: ""
+  path: /
+  hosts:
+    - host: example.com  # Reemplaza con tu dominio
+      paths:
+        - /
+  tls: []  # Configuración TLS, si es necesaria
+
+autoscaling:
+  enabled: true  # Cambia a false si no deseas habilitar el autoscaling
+  minReplicas: 1
+  maxReplicas: 2
+  targetCPUUtilizationPercentage: 80 

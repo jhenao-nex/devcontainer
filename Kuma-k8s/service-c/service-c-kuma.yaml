@@ -1,8 +1,0 @@
-apiVersion: kuma.io/v1alpha1
-kind: Service
-metadata:
-  name: service-c
-  namespace: default
-spec:
-  tags:
-    service: service-c
